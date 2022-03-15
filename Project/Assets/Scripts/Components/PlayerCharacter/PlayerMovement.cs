@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     // 점프 가능 상태를 나타냅니다.
     public bool isJumpable;
 
+    // 점프 도중 임을 나타냅니다.
+    public bool isJumping;
+
     // 움직임 상태를 나타냅니다.
     public bool isMovable { get; private set; }
 
@@ -71,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         RotationToMovement();
+
     }
 
     private void FixedUpdate()
@@ -193,7 +197,13 @@ public class PlayerMovement : MonoBehaviour
     // 점프를 합니다.
     private void Jump()
     {
-        _TargetVelocity.y = _JumpVelocity * Time.fixedDeltaTime;
+        _TargetVelocity.y = 1.5f * _JumpVelocity * Time.fixedDeltaTime;
+
+        if(!isJumping)
+        {
+            isJumping = true;
+            _PlayerCharacter.playerAnim.JumpingAnim();
+        }
     }
 
     // 중력 계산
@@ -236,6 +246,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         { 
             _TargetVelocity.y = 0.0f;
+            isJumping = false;
 
             GameObject collTrapObj = null;
             for (int i = 0; i < hits.Length; ++i)
