@@ -32,7 +32,7 @@ public class PlayerCharacterAnim : MonoBehaviour
     private void Update()
     {
         // 이동 애니메이션
-        if(_PlayerCharacter.playerMovement.velocity.y == 0.0f)
+        if (_PlayerCharacter.playerMovement.isGrounded)
         {
             _Animator.SetFloat("_Velocity", _PlayerCharacter.playerMovement.velocity.magnitude);
         }

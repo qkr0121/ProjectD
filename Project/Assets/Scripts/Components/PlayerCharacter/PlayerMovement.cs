@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         RotationToMovement();
-        Debug.Log(isGrounded);
     }
 
     private void FixedUpdate()
@@ -239,29 +238,36 @@ public class PlayerMovement : MonoBehaviour
         //if (isGrounded && hit.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
         //    hit.transform.gameObject.SetActive(false);
 
-        Ray ray = new Ray(transform.position, Vector3.down);
+        /// Ray ray = new Ray(transform.position, Vector3.down);
+        /// 
+        /// var hits = Physics.RaycastAll(ray, .1f, ~_IgnoreGroundLayer);
+        /// isGrounded = hits.Length > 0 ? true : false;
+        /// 
+        Ray ray1 = new Ray(transform.position + _CharacterController.center, Vector3.down);
 
-        var hits = Physics.RaycastAll(ray, .1f, ~_IgnoreGroundLayer);
-        isGrounded = hits.Length > 0 ? true : false;
+        RaycastHit hit1;
+
+        isGrounded = Physics.SphereCast(
+            ray1,
+            _CharacterController.radius,
+            out hit1,
+            _CharacterController.center.y - _CharacterController.radius + _CharacterController.skinWidth * 2,
+            ~_IgnoreGroundLayer)
+            && _Velocity.y <= 0.0f;
 
         if (isGrounded)
         { 
             _TargetVelocity.y = 0.0f;
+
             // 점프 가능상태로 변경합니다.
             isJumpable = true;
 
+            // 트랩을 밟았을시 트랩을 사라지게 합니다.
             GameObject collTrapObj = null;
-            for (int i = 0; i < hits.Length; ++i)
-            { 
-                if (hits[i].collider.gameObject.layer == LayerMask.NameToLayer("Trap"))
-                {
-                    collTrapObj = hits[i].collider.gameObject;
-                    break;
-                }
-            }
-
-            if (collTrapObj != null)
+            
+            if(hit1.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
+                collTrapObj = hit1.transform.gameObject;
                 collTrapObj.SetActive(false);
                 _PlayerCharacter.caveSoundQiz.ChangeCaveRoad();
             }
@@ -276,7 +282,7 @@ public class PlayerMovement : MonoBehaviour
             // 추락 애니메이션을 재생합니다.
             _PlayerCharacter.playerAnim.FallingAnim();
 
-            StopMove();
+            //StopMove();
         }
     }
 
