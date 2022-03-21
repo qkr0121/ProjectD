@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Interact : MonoBehaviour
 {
-
+    
     // 상호작용이 끝났을 때 호출되는 대리자
     protected System.Action onFinishInteraction { get; set; }
 

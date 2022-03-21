@@ -11,7 +11,7 @@
 
 동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정
 
-캐릭터 -> 점프시 공중에 떠있는 시간, 시작 위치 고정
+캐릭터 -> (점프시 공중에 떠있는 시간), 시작 위치 고정
 
 UI
 
@@ -20,7 +20,15 @@ NPC 오브젝트
 
 점프 -> 수업자료에서 점프 방식 확인(JumpAnim메서드를 pleyrAnim이 아닌 PlayerMovement에서 실행하는 것이 맞는가), 절벽에서 밀려나는이유
 
+stage -> 각 스테이지 시작 시 세이브포인트 지정과 끝날때 실행할 메서드를 작성하기
+
 USB에 저장해서 다니기 github에 push
 
 
 * 싱글톤패턴, 대리자, 이벤트, Action, 코루틴
+* InteractableNPC 에서
+_TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(transform.position).ToAngle() * Vector3.up;
+* InteractableNPC, NPCdialog 구조 공부
+
+
+stage 에 savepoint 설정까지함

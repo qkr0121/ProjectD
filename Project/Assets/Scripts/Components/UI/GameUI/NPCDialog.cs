@@ -63,11 +63,3 @@ public class NPCDialog : MonoBehaviour
     }
    
 }
-
-// 대화시 NPC 이름 정면을 향하게
-
-// screenRatio 참조 확인
-
-// PlayerInteraction 의 ShowInteractableObjectName 작성;
-
-// terrain 만들기
