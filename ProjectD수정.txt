@@ -1,6 +1,6 @@
 ﻿애니메이션 -> 공굴리기, 버튼터치, 손잡이 잡기
 
-시작시
+각 스테이지 시작시 -> UI로 스테이지 간단 설명
 
 숲지형 -> 시작 안내 표지판(UI)
 
@@ -12,6 +12,8 @@
 동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정
 
 캐릭터 -> (점프시 공중에 떠있는 시간), 시작 위치 고정
+
+카메라 -> 벽에 닿을시 카메라 넘어가지 않도록
 
 UI
 
@@ -31,4 +33,5 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 * InteractableNPC, NPCdialog 구조 공부
 
 
-stage 에 savepoint 설정까지함
+Dialog 클래스에 _dialog 리스트에 loadJson 까지함
+잘 되는지 확인
