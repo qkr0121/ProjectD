@@ -2,11 +2,9 @@
 
 각 스테이지 시작시 -> UI로 스테이지 간단 설명
 
-숲지형 -> 시작 안내 표지판(UI)
-
 눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 사라지게하기, 완료후 문열림
 
-절벽지형 -> 대사, 완료후 길생기게(2번째 레버있는 곳에서 절벽이 갈라지도록), 체크포인트 지정
+절벽지형 -> 대사, 완료후 길생기게(2번째 레버있는 곳에서 절벽이 사라지고 다리가 생김),
 	 돌 스프링 작용
 
 동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정
@@ -22,16 +20,20 @@ NPC 오브젝트
 
 점프 -> 수업자료에서 점프 방식 확인(JumpAnim메서드를 pleyrAnim이 아닌 PlayerMovement에서 실행하는 것이 맞는가), 절벽에서 밀려나는이유
 
-stage -> 각 스테이지 시작 시 세이브포인트 지정과 끝날때 실행할 메서드를 작성하기
+stage ->  끝날때 실행할 메서드를 작성하기 처음 대화 할때만 끝 이벤트 호출하기
 
 USB에 저장해서 다니기 github에 push
 
+모바일 말고 컴퓨터로 진행하는것 먼저하기
+InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화 할때만 켜기)
 
 * 싱글톤패턴, 대리자, 이벤트, Action, 코루틴
 * InteractableNPC 에서
 _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(transform.position).ToAngle() * Vector3.up;
 * InteractableNPC, NPCdialog 구조 공부
 
+처음시작시 설명 다시보고 싶으면 표지판 찾으라고 말하기
 
-Dialog 클래스에 _dialog 리스트에 loadJson 까지함
-잘 되는지 확인
+각 스테이지 설명 또 보고 싶으면 옆 표지판을 상호작용해서 보게 하기
+
+
