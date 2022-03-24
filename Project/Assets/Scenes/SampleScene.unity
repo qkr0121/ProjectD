@@ -637,6 +637,7 @@ MonoBehaviour:
   _TMP: {fileID: 1357998759}
   _NPCCode: 10000
   _CameraPosition: {fileID: 214668977}
+  _Stage: {fileID: 0}
 --- !u!54 &89289018
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1818,6 +1819,7 @@ MonoBehaviour:
   _TMP: {fileID: 400902602}
   _NPCCode: 10000
   _CameraPosition: {fileID: 682912065}
+  _Stage: {fileID: 0}
 --- !u!54 &250964987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2050,6 +2052,7 @@ MonoBehaviour:
   _TMP: {fileID: 1374734728}
   _NPCCode: 10000
   _CameraPosition: {fileID: 579687478}
+  _Stage: {fileID: 0}
 --- !u!54 &272704363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3512,6 +3515,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Clif
+  _WallToDisappear: {fileID: 1201685175}
+  _LeverToDisappear: {fileID: 1442689016}
+  _Bridge: {fileID: 1879892027}
+  _WallMaterial: {fileID: 2100000, guid: 9c965260d81e3bb4abd558eb765da0ce, type: 2}
+  _LeverMaterial: {fileID: 2100000, guid: 27246321c61f59f40b1eaedc4ed9dda3, type: 2}
+  _BridgeMaterial: {fileID: 2100000, guid: db46b121aa17e0f4098ea7232817f21c, type: 2}
 --- !u!54 &512951586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9610,7 +9619,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9c965260d81e3bb4abd558eb765da0ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10438,7 +10447,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 27246321c61f59f40b1eaedc4ed9dda3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10562,6 +10571,7 @@ MonoBehaviour:
   _TMP: {fileID: 1247526009}
   _NPCCode: 10001
   _CameraPosition: {fileID: 549548034}
+  _Stage: {fileID: 512951585}
 --- !u!54 &1317128080
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15344,7 +15354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: db46b121aa17e0f4098ea7232817f21c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15752,6 +15762,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2343680, guid: 3a699487877e77b439ff09deb77625e5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 27246321c61f59f40b1eaedc4ed9dda3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a699487877e77b439ff09deb77625e5, type: 3}
 --- !u!1001 &1916894683
@@ -17675,7 +17689,7 @@ PrefabInstance:
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.17
+      value: 107.63
       objectReference: {fileID: 0}
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}

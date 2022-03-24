@@ -12,6 +12,9 @@ public abstract class Stage : MonoBehaviour
     // 처음으로 진입했는지에 대한 읽기전용 프로퍼티
     public bool firstEnter { get; private set; } = true;
 
+    // 퀘스트를 깬 후 처음으로 NPC와 대화를 했는지 나타내는 읽기 전용 프로퍼티
+    public bool firstConv { get; private set; } = true;
+
     private PlayerCharacter _PlayerCharacter;
 
     private void Start()
@@ -23,7 +26,7 @@ public abstract class Stage : MonoBehaviour
     public void StartStage()
     {
         // StartDialog 프리팹을 불러옵니다.
-        GameObject dialogObject = Instantiate(ResourceManager.Instance.LoadResource<GameObject>("StartDialog", "Prefabs/UI/StartDialog"),GameObject.Find("GameUI").transform, true);
+        GameObject dialogObject = Instantiate(ResourceManager.Instance.LoadResource<GameObject>("StartDialog", "Prefabs/UI/StartDialog"), GameObject.Find("GameUI").transform, true);
 
         // Dialog 컴포넌트를 불러옵니다.
         Dialog dialog = dialogObject.GetComponent<Dialog>();
@@ -39,4 +42,10 @@ public abstract class Stage : MonoBehaviour
     // stage 가 끝났을 때 실행합니다.
     public abstract void FinishStage();
 
+    // 캐릭터 움직임과 정보를 갱신합니다.
+    protected void RenewalCharacter()
+    {
+        firstConv = false;
+        
+    }
 }

@@ -14,6 +14,9 @@ public class InteractableNPC : Interact
     [Header("카메라 위치")]
     [SerializeField] private Transform _CameraPosition;
 
+    [Header("스테이지")]
+    [SerializeField] private Stage _Stage;
+
     // 플레이어 캐릭터 컴포넌트를 나타냅니다.
     private PlayerCharacter _PlayerCharacter;
 
@@ -71,6 +74,12 @@ public class InteractableNPC : Interact
 
            // NPCDialog UI 를 제거합니다.
            Destroy(gameOb);
+
+           // 퀘스트를 깬 후 처음으로 대화를 하면 끝 이벤트를 호출합니다.
+           if(_Stage.firstConv)
+           {
+               _Stage.FinishStage();
+           }
 
            // 조이스틱의 오브젝트를 활성화 합니다.
            PlayerManager.Instance.gameUI[JoyStickType.Move].gameObject.SetActive(true);
