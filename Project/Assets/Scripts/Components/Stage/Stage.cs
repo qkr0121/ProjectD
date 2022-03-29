@@ -15,7 +15,7 @@ public abstract class Stage : MonoBehaviour
     // 퀘스트를 깬 후 처음으로 NPC와 대화를 했는지 나타내는 읽기 전용 프로퍼티
     public bool firstConv { get; private set; } = true;
 
-    private PlayerCharacter _PlayerCharacter;
+    protected PlayerCharacter _PlayerCharacter;
 
     private void Start()
     {

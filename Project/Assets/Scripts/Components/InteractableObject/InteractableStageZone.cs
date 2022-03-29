@@ -88,6 +88,7 @@ public class InteractableStageZone : Interact
 
         isChangeMaterial = true;
 
+
     }
 
     private void OnTriggerEnter(Collider other)

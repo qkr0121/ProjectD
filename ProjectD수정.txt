@@ -2,13 +2,11 @@
 
 각 스테이지 시작시 -> UI로 스테이지 간단 설명
 
-숲 -> 미로 사라지는 material 스크립트 변경하기 (ClifStage처럼),
-       Stage 스크립트 적용하기
+숲 -> Stage 스크립트 적용하기, FieldObject SetActive false 에서 true 로 바꾸는 작업
 
 눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 사라지게하기, 완료후 문열림
 
-절벽지형 -> 대사, 완료후 길생기게(2번째 레버있는 곳에서 절벽이 사라지고 다리가 생김),
-	 돌 스프링 작용, 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함)
+절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 쉐이더 ischange update에서 if 로 호출하지 말고 코루틴 사용
 
 동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정
 
@@ -25,7 +23,9 @@ NPC 오브젝트
 
 stage ->  끝날때 실행할 메서드를 작성하기 처음 대화 할때만 끝 이벤트 호출하기
 
-USB에 저장해서 다니기 github에 push
+처음시작시 설명 다시보고 싶으면 표지판 찾으라고 말하기
+
+각 스테이지 설명 또 보고 싶으면 옆 표지판을 상호작용해서 보게 하기
 
 모바일 말고 컴퓨터로 진행하는것 먼저하기
 InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화 할때만 켜기)
@@ -35,18 +35,10 @@ InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화
 _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(transform.position).ToAngle() * Vector3.up;
 * InteractableNPC, NPCdialog 구조 공부
 
-처음시작시 설명 다시보고 싶으면 표지판 찾으라고 말하기
-
-각 스테이지 설명 또 보고 싶으면 옆 표지판을 상호작용해서 보게 하기
-
-너무 어둡고 밝은 부분 차이 줄이기
-
-destroy와 비활성화가 같은지
-
 저장하는 법
 
 인게임 말고 씬에서만 작동하는 코드 있나 확인하기
 
-material 작동 강사님께 확인받아보기, arealight 가 custom material에서 작동안함
+Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-arealight 플레이어 culling 안됨
+forest 에서 카메라 다시 돌아가고, destroy부분 확인하기
