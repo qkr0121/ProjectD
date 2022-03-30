@@ -9,6 +9,9 @@ public abstract class Stage : MonoBehaviour
     [Header("스테이지 이름")]
     [SerializeField] private string Name;
 
+    [Header("카메라 위치")]
+    [SerializeField] protected Transform _CameraPosition;
+
     // 처음으로 진입했는지에 대한 읽기전용 프로퍼티
     public bool firstEnter { get; private set; } = true;
 
@@ -17,7 +20,7 @@ public abstract class Stage : MonoBehaviour
 
     protected PlayerCharacter _PlayerCharacter;
 
-    private void Start()
+    private void Awake()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
     }
@@ -46,6 +49,10 @@ public abstract class Stage : MonoBehaviour
     protected void RenewalCharacter()
     {
         firstConv = false;
+
+        _PlayerCharacter.trackingCamera.InitCameraPos();
+
+        _PlayerCharacter.playerMovement.AllowMove();
         
     }
 }

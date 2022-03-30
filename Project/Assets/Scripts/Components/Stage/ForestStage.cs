@@ -11,9 +11,6 @@ public class ForestStage : Stage
     [Header("나타낼 Material")]
     [SerializeField] private Material _FieldMaterial;
 
-    [Header("카메라 위치")]
-    [SerializeField] private Transform _CameraPosition;
-
     [Header("FieldObject")]
     [SerializeField] private GameObject _FieldObject;
 
@@ -22,7 +19,7 @@ public class ForestStage : Stage
 
     [Header("다음 단계로 가는 입구 collider")]
     [SerializeField] private GameObject _EnterCollider;
-
+    
     // Material 의 알파 값을 나타냅니다.
     private float alpa = 1;
 
@@ -44,6 +41,9 @@ public class ForestStage : Stage
                 Destroy(_Maze);
                 Destroy(_EnterCollider);
 
+                // 캐릭터 정보 갱신
+                RenewalCharacter();
+
                 yield break;
             }
 
@@ -59,6 +59,8 @@ public class ForestStage : Stage
     // 스테이지가 끝나면 실행합니다(NPC와 마지막 대사후 실행)
     public override void FinishStage()
     {
+        _PlayerCharacter.playerMovement.StopMove();
+
         // 카메라의 위치를 옮깁니다.
         _PlayerCharacter.trackingCamera.MoveToViewPosition(_CameraPosition);
 
@@ -66,8 +68,6 @@ public class ForestStage : Stage
 
         StartCoroutine(DisapperMaze());
 
-        // 캐릭터 정보 갱신
-        RenewalCharacter();
     }
 
 }

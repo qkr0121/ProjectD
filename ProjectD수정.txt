@@ -2,11 +2,13 @@
 
 각 스테이지 시작시 -> UI로 스테이지 간단 설명
 
-숲 -> Stage 스크립트 적용하기, FieldObject SetActive false 에서 true 로 바꾸는 작업
+숲 ->
 
-눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 사라지게하기, 완료후 문열림
+눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 사라지게하기, 완료후 문열림,
+	만약 눈덩이를 옮기지 않고 대화를 하면 눈덩이를 옮기고 오라고하기,
+	장애물에 닿았을 경우 destroy 말고 원래 위치로 옮기기(초기화하기)
 
-절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 쉐이더 ischange update에서 if 로 호출하지 말고 코루틴 사용
+절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 가운데 벽 rendering mode 변경하기
 
 동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정
 
@@ -41,4 +43,4 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-forest 에서 카메라 다시 돌아가고, destroy부분 확인하기
+snowstage 카메라 위치 작업중

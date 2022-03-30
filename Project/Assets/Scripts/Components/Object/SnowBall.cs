@@ -25,6 +25,9 @@ public sealed class SnowBall : Interact
     // PlayerCharacter 컴포넌트를 나타냅니다.
     private PlayerCharacter _PlayerCharacter;
 
+    // SnowStage 컴포넌트를 나타냅니다.
+    private SnowStage _SnowStage;
+
     // 플레이어가 눈덩이를 굴린 최대 거리를 나타냅니다.
     private float _MaxMoveDistant;
 
@@ -48,6 +51,7 @@ public sealed class SnowBall : Interact
     private void Start()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
+        _SnowStage = GetComponentInParent<SnowStage>();
         scale = 0.0f;
     }
 
@@ -70,6 +74,13 @@ public sealed class SnowBall : Interact
         {
             DetectWallPosition = _PlayerCharacter.transform.position;
             reward = false;
+        }
+        // 목표지점에 도착했을 경우 스테이지가 클리어 됩니다.
+        else if(other.gameObject.layer == LayerMask.NameToLayer("TargetPoint"))
+        {
+            gameObject.SetActive(false);
+            _SnowStage.stageClear = true;
+            Debug.Log(_SnowStage.stageClear);
         }
     }
 
