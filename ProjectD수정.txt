@@ -43,4 +43,4 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-snowstage 카메라 위치 작업중
+snowfield 문열리고 들어감, clif 바위 움직임 속도 설정함

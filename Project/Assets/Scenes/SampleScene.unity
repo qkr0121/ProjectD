@@ -1193,6 +1193,7 @@ MonoBehaviour:
   - {fileID: 2023670923}
   _CameraPosition: {fileID: 1180815707}
   _InteractionJoyStick: {fileID: 1855970106}
+  _RockMoveSpeed: 5
 --- !u!54 &208597172
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5262,11 +5263,11 @@ GameObject:
   - component: {fileID: 674450929}
   - component: {fileID: 674450928}
   m_Layer: 0
-  m_Name: DW
+  m_Name: DW(Door)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &674450927
 Transform:
@@ -7742,6 +7743,7 @@ MonoBehaviour:
   - {fileID: 711190255}
   _CameraPosition: {fileID: 802235272}
   _InteractionJoyStick: {fileID: 1855970106}
+  _RockMoveSpeed: 3
 --- !u!1 &997870084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8263,50 +8265,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051299391}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1066564296
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1066564297}
-  - component: {fileID: 1066564298}
-  m_Layer: 0
-  m_Name: UW
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &1066564297
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066564296}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 50, y: 5, z: 8.5}
-  m_LocalScale: {x: 17, y: 10, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1898842089}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &1066564298
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066564296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1067137204
 GameObject:
   m_ObjectHideFlags: 0
@@ -10307,6 +10265,7 @@ MonoBehaviour:
   - {fileID: 2144218120}
   _CameraPosition: {fileID: 1472459072}
   _InteractionJoyStick: {fileID: 1855970106}
+  _RockMoveSpeed: 4
 --- !u!54 &1308003504
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13139,8 +13098,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Snow
-  _CameraPosition: {fileID: 0}
-  _WallToOpen: {fileID: 0}
+  _CameraPosition: {fileID: 1785693863}
+  _WallToOpen: {fileID: 674450926}
+  _DoorOpenSpeed: 2
   stageClear: 0
 --- !u!54 &1597666504
 Rigidbody:
@@ -14768,13 +14728,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785693862}
-  m_LocalRotation: {x: -0.07236963, y: 0.70415866, z: 0.07119873, w: 0.7027474}
+  m_LocalRotation: {x: -0.067773156, y: 0.7038514, z: 0.067773156, w: 0.7038514}
   m_LocalPosition: {x: 38.80168, y: 2.9147105, z: 9.077091}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1597666502}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -11, y: 90, z: 0}
 --- !u!1 &1786812207
 GameObject:
   m_ObjectHideFlags: 0
@@ -15567,7 +15527,6 @@ Transform:
   - {fileID: 517517847}
   - {fileID: 715841096}
   - {fileID: 617842483}
-  - {fileID: 1066564297}
   m_Father: {fileID: 712939427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17758,7 +17717,7 @@ PrefabInstance:
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6
+      value: 39.09
       objectReference: {fileID: 0}
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}

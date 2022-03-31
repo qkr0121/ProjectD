@@ -13,6 +13,9 @@ public class InteractableLevers : Interact
     [Header("InteractJoyStick")]
     [SerializeField] private VirtualJoyStick _InteractionJoyStick;
 
+    [Header("바위 움직임 속도")]
+    [SerializeField] private float _RockMoveSpeed;
+
     // 현재 레버와 연결된 돌 번호
     private int RockNum;
 
@@ -51,7 +54,7 @@ public class InteractableLevers : Interact
         // 레버를 위로 당기면 왼쪽으로 아래로 당기면 오른쪽으로 바위를 움직입니다.
         Rocks[RockNum].transform.position += Rocks[RockNum].transform.right * (-1.0f)
             * PlayerManager.Instance.gameUI[JoyStickType.Interact].inputAxis.z
-            * Time.deltaTime;
+            * Time.deltaTime * _RockMoveSpeed;
         
     }
 
