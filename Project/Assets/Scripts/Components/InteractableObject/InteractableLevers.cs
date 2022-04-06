@@ -37,7 +37,8 @@ public class InteractableLevers : Interact
 
     private void Update()
     {
-        UseLever();
+        if(usingLever)
+            UseLever();
 
         if (!_InteractionJoyStick.isInput && usingLever == true)
         {

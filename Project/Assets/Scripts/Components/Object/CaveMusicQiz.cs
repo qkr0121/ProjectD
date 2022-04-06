@@ -117,7 +117,6 @@ public class CaveMusicQiz : MonoBehaviour
     // 정답을 입력했을시 정답 알림 구에 빛이 나게 합니다.
     private void LightAnswerSphere(int qizNum)
     {
-        Debug.Log(_IncColor);
         _IncColor += 1;
         _AnswerSphere[qizNum - 1].material.color = new Color(_IncColor/255f, 0, _IncColor/255f);
         if (_AnswerSphere[qizNum - 1].material.color.r > 1)

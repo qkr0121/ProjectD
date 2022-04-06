@@ -28,11 +28,18 @@ public class ClifStage : Stage
 
     private void Start()
     {
-        _WallMaterial = _WallToDisappear.GetComponent<MeshRenderer>().material;
-        _LeverMaterial = _LeverToDisappear.GetComponentsInChildren<MeshRenderer>()[1].material;
-        _BridgeMaterial = _Bridge.GetComponent<MeshRenderer>().material;
+        _WallMaterial = _WallToDisappear.GetComponent<MeshRenderer>().sharedMaterial;
+        _LeverMaterial = _LeverToDisappear.GetComponentsInChildren<MeshRenderer>()[1].sharedMaterial;
+        _BridgeMaterial = _Bridge.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
+    private void OnDisable()
+    {
+        // 각 Material의 알파값을 초기화합니다.
+        _WallMaterial.color = new Color(_WallMaterial.color.r, _WallMaterial.color.g, _WallMaterial.color.b, 1);
+        _LeverMaterial.color = new Color(_LeverMaterial.color.r, _LeverMaterial.color.g, _LeverMaterial.color.b, 1);
+        _BridgeMaterial.color = new Color(_BridgeMaterial.color.r, _BridgeMaterial.color.g, _BridgeMaterial.color.b, 0);
+    }
 
     // Material 알파값을 변경합니다.
     IEnumerator ChangeMaterial()

@@ -90,7 +90,6 @@ public sealed class SnowBall : Interact
         {
             gameObject.SetActive(false);
             _SnowStage.stageClear = true;
-            Debug.Log(_SnowStage.stageClear);
         }
     }
 

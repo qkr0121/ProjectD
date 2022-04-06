@@ -2,14 +2,16 @@
 
 각 스테이지 시작시 -> UI로 스테이지 간단 설명
 
+bgm 넣기
+
 숲 ->
 
-눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 사라지게하기, 완료후 문열림,
+눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 느려지게하기, 몇초에 한번씩 눈보라 치고 그친다(rate over time 을 점점늘렸다가 줄이기)
 	만약 눈덩이를 옮기지 않고 대화를 하면 눈덩이를 옮기고 오라고하기
 
 절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 가운데 벽 rendering mode 변경하기
 
-동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정
+동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정, 버튼 material -> material property block 으로 바꾸기
 
 캐릭터 -> (점프시 공중에 떠있는 시간), 시작 위치 고정
 
@@ -44,4 +46,6 @@ Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한�
 
 기획파일 push 하기
 
-snowblizzard 파티클 triggers -> callback 부분 하고있음(snowball 의 triggerenter에도 반응하는지 확인하기)
+유니티 그래픽 최적화
+url : https://metamon9.tistory.com/2?category=742611
+책 : 유니티 그래픽스 최적화 스타트업

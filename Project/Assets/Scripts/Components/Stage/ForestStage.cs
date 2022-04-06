@@ -6,7 +6,7 @@ public class ForestStage : Stage
 {
 
     [Header("사라질 Material")]
-    [SerializeField] private Material _MazeMaterial;
+    [SerializeField] private Material _MazeMaterial;  
 
     [Header("나타낼 Material")]
     [SerializeField] private Material _FieldMaterial;
