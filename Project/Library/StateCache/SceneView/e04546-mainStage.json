@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-13.040752410888672,"y":4.610080718994141,"z":19.456972122192384},"rotation":{"x":0.14515206217765809,"y":0.7296838760375977,"z":-0.16604351997375489,"w":0.6476549506187439},"size":1.7320507764816285,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":32.11766052246094,"y":7.308513641357422,"z":30.969322204589845},"rotation":{"x":0.15876467525959016,"y":0.6856977343559265,"z":-0.15933272242546082,"w":0.6926358342170715},"size":2.032050609588623,"orthographic":false}
+>>>>>>> parent of 245df85 (2022.03.31 class)

@@ -3906,7 +3906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535033359}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: 0.4, z: 7}
+  m_LocalPosition: {x: 5.15, y: 0.4, z: 6.7}
   m_LocalScale: {x: 0.8000001, y: 0.8, z: 0.8000001}
   m_Children: []
   m_Father: {fileID: 1597666502}
@@ -3992,8 +3992,6 @@ MonoBehaviour:
   _WallLayer:
     serializedVersion: 2
     m_Bits: 16384
-  _InitSnowballPos: {fileID: 1209348957}
-  _InitParentObj: {fileID: 1597666501}
 --- !u!54 &535033365
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9340,36 +9338,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201685175}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1209348956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1209348957}
-  m_Layer: 0
-  m_Name: InitSnowballPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1209348957
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209348956}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.8, y: 0.4, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1698594258}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218701765
 GameObject:
   m_ObjectHideFlags: 0
@@ -13745,7 +13713,6 @@ Transform:
   - {fileID: 607624504}
   - {fileID: 2117063718}
   - {fileID: 1004619880}
-  - {fileID: 1209348957}
   m_Father: {fileID: 712939427}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17441,7 +17408,11 @@ PrefabInstance:
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: 3.1
+=======
+      value: 39.09
+>>>>>>> parent of 245df85 (2022.03.31 class)
       objectReference: {fileID: 0}
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}

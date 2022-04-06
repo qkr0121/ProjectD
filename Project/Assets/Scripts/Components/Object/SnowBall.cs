@@ -22,12 +22,6 @@ public sealed class SnowBall : Interact
     [Header("감지할 벽 레이어")]
     [SerializeField] private LayerMask _WallLayer;
 
-    [Header("눈덩이 초기 위치")]
-    [SerializeField] private Transform _InitSnowballPos;
-
-    [Header("눈덩이 초기 부모오브젝트")]
-    [SerializeField] private GameObject _InitParentObj;
-
     // PlayerCharacter 컴포넌트를 나타냅니다.
     private PlayerCharacter _PlayerCharacter;
 
@@ -70,14 +64,10 @@ public sealed class SnowBall : Interact
 
     private void OnTriggerEnter(Collider other)
     {
-        // 장애물과 닿았을 경우 초기위치로 되돌아 갑니다.
+        // 장애물과 닿았을 경우 눈덩이가 부서집니다.
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
-            // 초기위치에 새로 생성합니다.
-            Instantiate(this, _InitSnowballPos.position,_InitSnowballPos.rotation,_InitParentObj.transform);
-
-            // 지금 굴리고 있는 눈덩이를 파괴합니다.
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
         // 벽에 닿았을 경우 해당 위치를 저장합니다.
         else if(other.gameObject.layer == LayerMask.NameToLayer("Wall") && reward)
