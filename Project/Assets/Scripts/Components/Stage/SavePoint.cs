@@ -27,7 +27,9 @@ public class SavePoint : MonoBehaviour
             // 상호작용 키를 활성화합니다.
             InputManager.Instance.SetActiveInteractJoyStick();
 
-            // 처음 스테이지에 진입했슴을 알립니다.
+            _Stage.gameObject.SetActive(true);
+
+            // 처음 스테이지에 진입함을 알립니다.
             if(_Stage.firstEnter)
                 _Stage.StartStage();
         }

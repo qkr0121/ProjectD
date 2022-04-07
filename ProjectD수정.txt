@@ -1,4 +1,4 @@
-﻿애니메이션 -> 공굴리기, 버튼터치, 손잡이 잡기
+﻿애니메이션 -> 공굴리기(push), 버튼터치, 손잡이 잡기
 
 각 스테이지 시작시 -> UI로 스테이지 간단 설명
 
@@ -6,8 +6,7 @@ bgm 넣기
 
 숲 ->
 
-눈지형 -> 대사, 눈덩이회전, 눈바람, 골인지점, 바람맞을시 느려지게하기, 몇초에 한번씩 눈보라 치고 그친다(rate over time 을 점점늘렸다가 줄이기)
-	만약 눈덩이를 옮기지 않고 대화를 하면 눈덩이를 옮기고 오라고하기
+눈지형 -> 대사, 만약 눈덩이를 옮기지 않고 대화를 하면 눈덩이를 옮기고 오라고하기
 
 절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 가운데 벽 rendering mode 변경하기
 
@@ -38,6 +37,10 @@ InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화
 _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(transform.position).ToAngle() * Vector3.up;
 * InteractableNPC, NPCdialog 구조 공부
 
+유니티 그래픽 최적화
+url : https://metamon9.tistory.com/2?category=742611
+책 : 유니티 그래픽스 최적화 스타트업
+
 저장하는 법
 
 인게임 말고 씬에서만 작동하는 코드 있나 확인하기
@@ -45,7 +48,3 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
 기획파일 push 하기
-
-유니티 그래픽 최적화
-url : https://metamon9.tistory.com/2?category=742611
-책 : 유니티 그래픽스 최적화 스타트업

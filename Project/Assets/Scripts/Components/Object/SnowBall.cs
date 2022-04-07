@@ -63,7 +63,7 @@ public sealed class SnowBall : Interact
 
     private void Update()
     {
-
+        SnowBallRota();
         Roll();
         SetSnowBallPosition();
     }
@@ -73,6 +73,9 @@ public sealed class SnowBall : Interact
         // 장애물과 닿았을 경우 초기위치로 되돌아 갑니다.
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
+            // 밀기 애니메이션을 달리기 애니메이션으로 변경합니다.
+            _PlayerCharacter.playerAnim.RunningAnim();
+
             // 초기위치에 새로 생성합니다.
             Instantiate(this, _InitSnowballPos.position,_InitSnowballPos.rotation,_InitParentObj.transform);
 
@@ -88,7 +91,11 @@ public sealed class SnowBall : Interact
         // 목표지점에 도착했을 경우 스테이지가 클리어 됩니다.
         else if(other.gameObject.layer == LayerMask.NameToLayer("TargetPoint"))
         {
-            gameObject.SetActive(false);
+            // 밀기 애니메이션을 달리기 애니메이션으로 변경합니다.
+            _PlayerCharacter.playerAnim.RunningAnim();
+            _PlayerCharacter.playerMovement.maxSpeed = 3.0f;
+
+            Destroy(gameObject);
             _SnowStage.stageClear = true;
         }
     }
@@ -110,6 +117,15 @@ public sealed class SnowBall : Interact
     {
         reward = true;
         _PlayerCharacter.playerMovement.rotatable = 0.0f;
+    }
+
+    // 눈덩이를 회전시킵니다.
+    private void SnowBallRota()
+    {
+        if(_PlayerCharacter.playerMovement.velocity.magnitude > 0.0f)
+        {
+            gameObject.transform.rotation *= Quaternion.Euler(5, 0, 0);
+        }
     }
 
     // 눈덩이 위치와 크기를 조정합니다.
@@ -213,6 +229,9 @@ public sealed class SnowBall : Interact
 
     public override void Interaction()
     {
+        // 굴리기 애니메이션으로 변경합니다.
+        _PlayerCharacter.playerAnim.PushingAnim();
+
         StartCoroutine(SetRoll());
     }
 

@@ -46,6 +46,13 @@ public class PlayerCharacterAnim : MonoBehaviour
         
     }
 
+    // 달리기 애니메이션을 재생합니다.
+    public void RunningAnim()
+    {
+        _PlayerCharacter.playerMovement.isJumpable = true;
+        _Animator.Play("RunBlendTree");
+    }
+
     // 점프 애니메이션을 재생합니다.
     public void JumpingAnim()
     {
@@ -63,5 +70,13 @@ public class PlayerCharacterAnim : MonoBehaviour
     {
         _PlayerCharacter.playerMovement.StartCoroutine(_PlayerCharacter.playerMovement.Respawn());
         //_PlayerCharacter.playerMovement.StartCoroutine("Respawn");
+    }
+
+    // 굴리기 애니메이션을 재생합니다
+    public void PushingAnim()
+    {
+        // 점프를 할 수 없는 상태로 변경합니다.
+        _PlayerCharacter.playerMovement.isJumpable = false;
+        _Animator.Play("PushBlendTree");        
     }
 }

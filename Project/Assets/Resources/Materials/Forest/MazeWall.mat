@@ -121,7 +121,7 @@ Material:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.10475261, g: 0.20754719, b: 0.016642937, a: 1}
     - _Emission: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

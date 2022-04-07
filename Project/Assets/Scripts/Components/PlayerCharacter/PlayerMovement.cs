@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded; /*{ get; private set; }*/
 
     // 점프 가능 상태를 나타냅니다.
-    public bool isJumpable = true;
+    public bool isJumpable;
 
     // 움직임 상태를 나타냅니다.
     public bool isMovable { get; private set; }
@@ -53,7 +53,11 @@ public class PlayerMovement : MonoBehaviour
     // _Velocity 읽기 전용 프로퍼티
     public Vector3 velocity => _CharacterController.velocity;
 
-    public float maxSpeed => _MaxSpeed;
+    public float maxSpeed
+    {
+        get { return _MaxSpeed; }
+        set { _MaxSpeed = value; }
+    }
 
     // 오른쪽 회전 가능 상태 (-1 왼쪽 회전 불가능 1 오른쪽 회전 불가능 0 회전가능)
     public float rotatable { get; set; }
@@ -63,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
         _CharacterController = GetComponent<CharacterController>();
 
+        isJumpable = true;
         isMovable = true;
         useMovable = true;
         rotatable = 0.0f;
@@ -197,11 +202,10 @@ public class PlayerMovement : MonoBehaviour
         if (isJumpable == false) return;
 
         // 점프를 하고 애니메이션을 실행하고 점프 불가능 상태로 만듭니다.
-        if(isJumpable)
+        if(isGrounded)
         {
             _TargetVelocity.y = 1.5f * _JumpVelocity * Time.fixedDeltaTime;
             _PlayerCharacter.playerAnim.JumpingAnim();
-            isJumpable = false;
         }
 
     }
@@ -258,9 +262,6 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         { 
             _TargetVelocity.y = 0.0f;
-
-            // 점프 가능상태로 변경합니다.
-            isJumpable = true;
 
             // 트랩을 밟았을시 트랩을 사라지게 합니다.
             GameObject collTrapObj = null;
