@@ -202,10 +202,11 @@ public class PlayerMovement : MonoBehaviour
         if (isJumpable == false) return;
 
         // 점프를 하고 애니메이션을 실행하고 점프 불가능 상태로 만듭니다.
-        if(isGrounded)
+        if(isJumpable)
         {
             _TargetVelocity.y = 1.5f * _JumpVelocity * Time.fixedDeltaTime;
             _PlayerCharacter.playerAnim.JumpingAnim();
+            isJumpable = false;
         }
 
     }

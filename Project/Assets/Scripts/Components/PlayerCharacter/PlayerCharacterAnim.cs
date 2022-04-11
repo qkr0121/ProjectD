@@ -59,6 +59,12 @@ public class PlayerCharacterAnim : MonoBehaviour
         _Animator.Play("Jumping");
     }
 
+    // 점프 후 이벤트를 실행합니다.
+    public void JumpingFinishEvent()
+    {
+        _PlayerCharacter.playerMovement.isJumpable = true;
+    }
+
     // 추락 애니메이션을 재생합니다.
     public void FallingAnim()
     {

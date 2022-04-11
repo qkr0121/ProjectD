@@ -25,7 +25,6 @@ public sealed class StageWolfRock : MonoBehaviour
     // 플레이어가 돌을 밟을 때
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("asdf");
         // 밟은 오브젝트가 플레이어가 아닐시 실행하지 않습니다.
         if (other.gameObject.layer != LayerMask.NameToLayer("PlayerInteractionArea")) return;
 

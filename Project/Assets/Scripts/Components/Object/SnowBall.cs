@@ -54,10 +54,14 @@ public sealed class SnowBall : Interact
 
     private bool reward;
 
+    // 파괴될수 있는 상태를 나타냅니다
+    public bool isBreakable;
+
     private void Start()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
         _SnowStage = GetComponentInParent<SnowStage>();
+        isBreakable = true;
         scale = 0.0f;
     }
 
@@ -73,14 +77,7 @@ public sealed class SnowBall : Interact
         // 장애물과 닿았을 경우 초기위치로 되돌아 갑니다.
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
-            // 밀기 애니메이션을 달리기 애니메이션으로 변경합니다.
-            _PlayerCharacter.playerAnim.RunningAnim();
-
-            // 초기위치에 새로 생성합니다.
-            Instantiate(this, _InitSnowballPos.position,_InitSnowballPos.rotation,_InitParentObj.transform);
-
-            // 지금 굴리고 있는 눈덩이를 파괴합니다.
-            Destroy(this.gameObject);
+            InitSnowBall();
         }
         // 벽에 닿았을 경우 해당 위치를 저장합니다.
         else if(other.gameObject.layer == LayerMask.NameToLayer("Wall") && reward)
@@ -97,6 +94,11 @@ public sealed class SnowBall : Interact
 
             Destroy(gameObject);
             _SnowStage.stageClear = true;
+        }
+        // 안전지대(SafeZone)에 들어갔을 경우 파괴 되지 않습니다.
+        else if(other.gameObject.layer == LayerMask.NameToLayer("SafeZone"))
+        {
+            isBreakable = false;
         }
     }
 
@@ -117,6 +119,12 @@ public sealed class SnowBall : Interact
     {
         reward = true;
         _PlayerCharacter.playerMovement.rotatable = 0.0f;
+
+        // 안전지대를 벗어날시 파괴될수 있습니다.
+        if(other.gameObject.layer == LayerMask.NameToLayer("SafeZone"))
+        {
+            isBreakable = true;
+        }
     }
 
     // 눈덩이를 회전시킵니다.
@@ -225,6 +233,20 @@ public sealed class SnowBall : Interact
         yield return new WaitForSeconds(0.1f);
 
         FinishInteraction();
+    }
+
+    // 눈덩이를 초기화합니다.
+    public void InitSnowBall()
+    {
+        // 밀기 애니메이션을 달리기 애니메이션으로 변경합니다.
+        _PlayerCharacter.playerAnim.RunningAnim();
+
+        // 초기위치에 새로 생성합니다.
+        _SnowStage._SnowBall = Instantiate(this, _InitSnowballPos.position, _InitSnowballPos.rotation, _InitParentObj.transform);
+        _SnowStage._SnowBall.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
+        // 지금 굴리고 있는 눈덩이를 파괴합니다.
+        Destroy(this.gameObject);
     }
 
     public override void Interaction()

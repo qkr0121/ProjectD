@@ -13,11 +13,17 @@ public class SnowStage : Stage
     [Header("눈보라 파티클")]
     [SerializeField] private GameObject _BlizzardParticle;
 
+    // SnowBall 컴포넌트
+    public SnowBall _SnowBall;
+
     // 파티클 시스템
     private ParticleSystem _Particle;
 
     // 처음 벽 위치
     private Vector3 _InitWallPos;
+
+    // 파괴 시킬수 있는 상태
+    private bool breaking;
 
     public bool stageClear;
 
@@ -27,16 +33,34 @@ public class SnowStage : Stage
 
         _InitWallPos = _WallToOpen.transform.position;
 
+        breaking = false;
+
         StartCoroutine(Blizzard());
     }
 
-    // 눈보라가 칩니다.
+    private void Update()
+    {
+        // 눈보라가 칠때 안전지대에 있지 않으면 눈덩이를 파괴시킵니다.
+        if(breaking)
+        {
+            if(_SnowBall.isBreakable)
+            {
+                _SnowBall.InitSnowBall();
+            }
+        }
+    }
+
+    // 눈보라파티클
     IEnumerator Blizzard()
     {
         var emission = _Particle.emission;
 
+        // 눈보라가 칩니다.
         _Particle.Play();
         yield return new WaitForSeconds(1.0f);
+
+        // 파괴 가능상태로 변경합니다.
+        breaking = true;
 
         //플레이어 속도를 늦춥니다.
         _PlayerCharacter.playerMovement.maxSpeed = 2.0f;
@@ -47,6 +71,9 @@ public class SnowStage : Stage
         // 눈보라가 그칩니다.
         _Particle.Stop();
         emission.rateOverTime = 10.0f;
+
+        // 파괴 불가상태로 변경합니다.
+        breaking = false;
         // 플레이어 속도를 되돌립니다.
         _PlayerCharacter.playerMovement.maxSpeed = 3.0f;
 
