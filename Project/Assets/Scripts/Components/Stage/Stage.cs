@@ -20,9 +20,13 @@ public abstract class Stage : MonoBehaviour
 
     protected PlayerCharacter _PlayerCharacter;
 
+    // 스테이지 클리어
+    public bool stageClear;
+
     private void Awake()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
+        stageClear = true;
     }
 
     // stage 가 시작할 때 실행합니다. (UI 로 스테이지 간단하게 설명)

@@ -76,7 +76,7 @@ public class InteractableNPC : Interact
            Destroy(gameOb);
 
            // 퀘스트를 깬 후 처음으로 대화를 하면 끝 이벤트를 호출합니다.
-           if(_Stage.firstConv)
+           if(_Stage.firstConv && _Stage.stageClear)
            {
                _Stage.FinishStage();
            }

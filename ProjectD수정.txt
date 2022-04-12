@@ -6,11 +6,11 @@ bgm 넣기
 
 숲 ->
 
-눈지형 -> 대사, 만약 눈덩이를 옮기지 않고 대화를 하면 눈덩이를 옮기고 오라고하기
+눈지형 -> 대사
 
-절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함) -> 점프가 안됨 -> boxcollider로 변경, 가운데 벽 rendering mode 변경하기
+절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 가운데 벽 rendering mode 변경하기
 
-동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 체크포인트 지정, 버튼 material -> material property block 으로 바꾸기
+동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 버튼 material -> material property block 으로 바꾸기, 퀴즈 3개로 변경
 
 캐릭터 -> (점프시 공중에 떠있는 시간), 시작 위치 고정, 공중상태여도 점프 한번가능하게-> 돌에서 내려올시 잠깐 공중판정으로 isjumpable false 가 됨 그지점찾기
 
@@ -37,16 +37,12 @@ InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화
 _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(transform.position).ToAngle() * Vector3.up;
 * InteractableNPC, NPCdialog 구조 공부
 
-유니티 그래픽 최적화
-url : https://metamon9.tistory.com/2?category=742611
-책 : 유니티 그래픽스 최적화 스타트업
-
 저장하는 법
 
 인게임 말고 씬에서만 작동하는 코드 있나 확인하기
 
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-기획파일 push 하기
+SoundManager, 표지판 작업(InteractableSign) 중
 
-돌에서 내려올시 잠깐 공중판정으로 isjumpable false 가 됨 그지점찾기
+기획파일 push 하기

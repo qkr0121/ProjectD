@@ -304,10 +304,12 @@ public class PlayerMovement : MonoBehaviour
     public void AllowMove()
     {
         isMovable = true;
+        isJumpable = true;
     }
 
     public void StopMove()
     {
         isMovable = false;
+        isJumpable = false;
     }
 }

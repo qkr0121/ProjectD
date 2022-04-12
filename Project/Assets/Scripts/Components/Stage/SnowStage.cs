@@ -25,8 +25,6 @@ public class SnowStage : Stage
     // 파괴 시킬수 있는 상태
     private bool breaking;
 
-    public bool stageClear;
-
     private void OnEnable()
     {
         _Particle = _BlizzardParticle.GetComponent<ParticleSystem>();
@@ -34,6 +32,8 @@ public class SnowStage : Stage
         _InitWallPos = _WallToOpen.transform.position;
 
         breaking = false;
+
+        stageClear = false;
 
         StartCoroutine(Blizzard());
     }
