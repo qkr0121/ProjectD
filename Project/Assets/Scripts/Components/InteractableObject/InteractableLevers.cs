@@ -54,7 +54,7 @@ public class InteractableLevers : Interact
     {
         // 레버를 위로 당기면 왼쪽으로 아래로 당기면 오른쪽으로 바위를 움직입니다.
         Rocks[RockNum].transform.position += Rocks[RockNum].transform.right * (-1.0f)
-            * PlayerManager.Instance.gameUI[JoyStickType.Interact].inputAxis.z
+            * PlayerManager.Instance.gameUI.interactJoyStick.inputAxis.z
             * Time.deltaTime * _RockMoveSpeed;
         
     }
@@ -73,12 +73,20 @@ public class InteractableLevers : Interact
             usingLever = false;
         }
 
-        InputManager.Instance.InitInteractJoyStick();
         FinishInteraction();
     }
 
     public override void Interaction()
     {
+        // 상호작용 키 활성화
+        InputManager.Instance.SetActiveInteractJoyStick();
+
+        onFinishInteraction += () =>
+        {
+            // 상호작용 키 비활성화
+            InputManager.Instance.SetDisableInteractJoyStick();
+        };
+
         // 상호작용 키 변경
         InputManager.Instance.InteractJoyStickToVerticalMove();
 

@@ -80,23 +80,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        // MoveJoyStick 의 축값을 저장합니다.
-        _InputVector = PlayerManager.Instance.gameUI[JoyStickType.Move].inputAxis;
-
-#if UNITY_EDITOR
-
         // 입력값을 저장합니다.
         Vector3 pcInput = Vector3.zero;
         pcInput.x = Input.GetAxisRaw("Horizontal");
         pcInput.z = Input.GetAxisRaw("Vertical");
+        _InputVector = pcInput;
 
-        if (pcInput.magnitude > 0.1f)
-            _InputVector = pcInput;
-
-#endif
         // 카메라 방향으로 입력값을 변경합니다.
-        _CameraDirInputVector = _InputVector;
         _CameraDirInputVector = _PlayerCharacter.trackingCamera.InputVectorToCamera(_InputVector);
 
         // 점프 키를 입력 시 점프를 합니다.
@@ -144,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
                 currentTargetVelocity,
                 _MaxSpeed * (600.0f * 0.01f * Time.deltaTime) * Time.deltaTime);
 
-            //_Velocity.y = currentTargetVectorY;
+            _Velocity.y = currentTargetVectorY;
         }
 
         CalculateInputVector();
@@ -157,15 +147,7 @@ public class PlayerMovement : MonoBehaviour
     private void RotationToMovement()
     {
         // 이동하지 않을 경우에는 회전을 하지 않습니다.
-        if (_CameraDirInputVector.magnitude <= _CharacterController.minMoveDistance) 
-        {
-            var length = _CameraDirInputVector.magnitude;
-            if (length != 0)
-                Debug.Log($"{_CameraDirInputVector.magnitude}");
-
-            return;
-        }
-
+        if (_CameraDirInputVector.magnitude <= _CharacterController.minMoveDistance) return;
 
         // 움직일 수 없을 경우에는 회전을 하지 않습니다.
         if (!isMovable) return;
@@ -223,31 +205,7 @@ public class PlayerMovement : MonoBehaviour
 
     // 땅에 닿음 상태를 업데이트 합니다.
     private void UpgradeGroundState()
-    {
-        //Ray ray = new Ray(transform.position + _CharacterController.center, Vector3.down);
-
-        //RaycastHit hit;
-
-        //isGrounded = Physics.SphereCast(
-        //    ray,
-        //    _CharacterController.radius,
-        //    out hit,
-        //    _CharacterController.center.y - _CharacterController.radius + _CharacterController.skinWidth * 2,
-        //    ~_IgnoreGroundLayer)
-        //    && _Velocity.y <= 0.0f;
-
-        //// 바닥에 닿아있다면  y 속도를 0 으로 저장합니다.
-        //if (isGrounded)
-        //    _TargetVelocity.y = 0.0f;
-
-        //if (isGrounded && hit.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
-        //    hit.transform.gameObject.SetActive(false);
-
-        /// Ray ray = new Ray(transform.position, Vector3.down);
-        /// 
-        /// var hits = Physics.RaycastAll(ray, .1f, ~_IgnoreGroundLayer);
-        /// isGrounded = hits.Length > 0 ? true : false;
-        /// 
+    {       
         Ray ray1 = new Ray(transform.position + _CharacterController.center, Vector3.down);
 
         RaycastHit hit1;
@@ -265,10 +223,9 @@ public class PlayerMovement : MonoBehaviour
             _TargetVelocity.y = 0.0f;
 
             // 트랩을 밟았을시 트랩을 사라지게 합니다.
-            GameObject collTrapObj = null;
-            
             if(hit1.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
+                GameObject collTrapObj;
                 collTrapObj = hit1.transform.gameObject;
                 collTrapObj.SetActive(false);
                 _PlayerCharacter.caveSoundQiz.ChangeCaveRoad();

@@ -9,13 +9,7 @@ public class InputManager : ManagerClassBase<InputManager>
 
     public override void InitializeManagerClass() 
     {
-        _InteractJoyStick = PlayerManager.Instance.gameUI[JoyStickType.Interact];
-    }
-
-    // 상하작용 조이스틱이 클릭만 됩니다.(움직일 수 없음, 기본상태)
-    public void InitInteractJoyStick()
-    {
-        _InteractJoyStick.isVerticalMovable = false;
+        _InteractJoyStick = PlayerManager.Instance.gameUI.interactJoyStick;
     }
 
     // 상호작용 조이스틱이 상하로만 움직입니다.
@@ -27,13 +21,13 @@ public class InputManager : ManagerClassBase<InputManager>
     // 상호작용 조이스틱을 활성화 합니다.
     public void SetActiveInteractJoyStick()
     {
-        PlayerManager.Instance.gameUI[JoyStickType.Interact].GetComponent<VirtualJoyStick>().enabled = true;
+        PlayerManager.Instance.gameUI.interactJoyStick.gameObject.SetActive(true);
     }
 
     // 상호작용 조이스틱을 비활성화 합니다.
     public void SetDisableInteractJoyStick()
     {
-        PlayerManager.Instance.gameUI[JoyStickType.Interact].GetComponent<VirtualJoyStick>().enabled = false;
+        PlayerManager.Instance.gameUI.interactJoyStick.gameObject.SetActive(false);
     }
 
 }

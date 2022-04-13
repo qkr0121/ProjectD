@@ -49,11 +49,7 @@ public class InteractableNPC : Interact
     }
 
     public override void Interaction()
-    {
-        // 조이스틱의 오브젝트를 비활성화 합니다.
-        PlayerManager.Instance.gameUI[JoyStickType.Move].gameObject.SetActive(false);
-        PlayerManager.Instance.gameUI[JoyStickType.Interact].gameObject.SetActive(false);
-
+    {       
         // Dialog UI를 생성합니다.
         GameObject gameOb = Instantiate(ResourceManager.Instance.LoadResource<GameObject>("NPCDialog", "Prefabs/UI/NPCDialog"), GameObject.Find("GameUI").transform, true);
 
@@ -81,9 +77,6 @@ public class InteractableNPC : Interact
                _Stage.FinishStage();
            }
 
-           // 조이스틱의 오브젝트를 활성화 합니다.
-           PlayerManager.Instance.gameUI[JoyStickType.Move].gameObject.SetActive(true);
-           PlayerManager.Instance.gameUI[JoyStickType.Interact].gameObject.SetActive(true);
        };
     }
 

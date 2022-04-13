@@ -93,7 +93,6 @@ public class TrackingCamera : MonoBehaviour
         forwardVector.y = 0.0f;
         forwardVector.Normalize();
         
-        // 
         forwardVector *= inputVector.z;
         rightVector *= inputVector.x;
 

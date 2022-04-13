@@ -26,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         // 상호작용 키를 눌렀을 경우
-        if(PlayerManager.Instance.gameUI[JoyStickType.Interact].isInput)
+        if(Input.GetKeyDown(KeyCode.E))
         {
             TryInteraction();
         }

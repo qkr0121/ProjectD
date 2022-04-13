@@ -16,9 +16,6 @@ public sealed class VirtualJoyStick : MonoBehaviour,
     // RectTransform 컴포넌트를 나타냅니다.
     private RectTransform _JSRectTransform;
 
-    // MoveJoyStick 인지 확인합니다.
-    public bool isMoveJoyStick;
-
     // InteractJoyStick 의 수직 이동 가능 상태를 나타냅니다.
     public bool isVerticalMovable;
 
@@ -55,9 +52,6 @@ public sealed class VirtualJoyStick : MonoBehaviour,
         {
             inputPos.x = 0.0f;
         }
-        // MoveJoyStick 이 아니면 inputPos 를 초기화합니다.
-        else if (!isMoveJoyStick) 
-            inputPos = Vector2.zero;
 
         // 조이스틱 이미지 위치를 설정합니다.
         _VirtualJSThumbImage.rectTransform.anchoredPosition = inputPos;

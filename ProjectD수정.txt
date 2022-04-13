@@ -16,6 +16,8 @@ bgm 넣기
 
 카메라 -> 벽에 닿을시 카메라 넘어가지 않도록
 
+표지판 작업(InteractableSign) -> 다시 실행할시 상호작용 키 작동 안함(FinishEvent 없음)
+
 UI
 
 NPC 오브젝트
@@ -43,6 +45,10 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-SoundManager, 표지판 작업(InteractableSign) 중
+SoundManager
+
+JoyStick UI 빼기(모바일X)
+상호작용 오브젝트 ui로 키와 오브젝트 이름 표시하기(playerinteraction 에서 ShowInteractableObjectName())
+레버 ui on,off 까지 함, joystick 쓰는곳 수정하기
 
 기획파일 push 하기
