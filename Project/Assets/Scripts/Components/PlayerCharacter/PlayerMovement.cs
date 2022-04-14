@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     // 점프 가능 상태를 나타냅니다.
     public bool isJumpable;
 
+    // 점프 가능 횟수를 나타냅니다.
+    public int jumpCount;
+
     // 움직임 상태를 나타냅니다.
     public bool isMovable { get; private set; }
 
@@ -71,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         isMovable = true;
         useMovable = true;
         rotatable = 0.0f;
+        jumpCount = 1;
     }
 
     private void Update()
@@ -184,11 +188,11 @@ public class PlayerMovement : MonoBehaviour
         if (isJumpable == false) return;
 
         // 점프를 하고 애니메이션을 실행하고 점프 불가능 상태로 만듭니다.
-        if(isJumpable)
+        if(jumpCount > 0)
         {
             _TargetVelocity.y = 1.5f * _JumpVelocity * Time.fixedDeltaTime;
             _PlayerCharacter.playerAnim.JumpingAnim();
-            isJumpable = false;
+            jumpCount--;
         }
 
     }
@@ -222,8 +226,11 @@ public class PlayerMovement : MonoBehaviour
         { 
             _TargetVelocity.y = 0.0f;
 
+            // 점프 가능 횟수를 초기화 합니다.
+            jumpCount = 1;
+
             // 트랩을 밟았을시 트랩을 사라지게 합니다.
-            if(hit1.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
+            if (hit1.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
                 GameObject collTrapObj;
                 collTrapObj = hit1.transform.gameObject;

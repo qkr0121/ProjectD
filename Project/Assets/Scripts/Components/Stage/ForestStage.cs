@@ -51,7 +51,7 @@ public class ForestStage : Stage
             _FieldMaterial.color = new Color(_FieldMaterial.color.r, _FieldMaterial.color.g, _FieldMaterial.color.b, 1 - alpa);
             alpa -= 0.004f;
 
-            yield return null;
+            yield return new WaitForSeconds(0.02f);
         }
     }
 

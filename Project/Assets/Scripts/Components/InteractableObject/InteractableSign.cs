@@ -21,13 +21,11 @@ public class InteractableSign : Interact
 
         dialog._DialogName = _StageName + "StageInfo";
 
+        FinishInteraction();
     }
 
     public override void Interaction()
     {
-        // 상호작용 조이스틱 비활성화
-        PlayerManager.Instance.gameUI.interactJoyStick.gameObject.SetActive(false);
-
         StageInfoRepeat();
     }
 

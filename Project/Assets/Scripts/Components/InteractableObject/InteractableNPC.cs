@@ -20,6 +20,9 @@ public class InteractableNPC : Interact
     // 플레이어 캐릭터 컴포넌트를 나타냅니다.
     private PlayerCharacter _PlayerCharacter;
 
+    // 상호작용 설명 UI
+    private GameObject _InteractionDetailUI;
+
     // NPC 정보를 담은 NPCInfo
     private NPCInfo _NPCInfo;
 
@@ -29,6 +32,8 @@ public class InteractableNPC : Interact
     private void Start()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
+
+        _InteractionDetailUI = PlayerManager.Instance.gameUI.interactUI;
 
         _NPCInfo = ResourceManager.Instance.LoadJson<NPCInfo>(_NPCCode.ToString(), "Prefabs/Character/NPC");
 
@@ -62,6 +67,9 @@ public class InteractableNPC : Interact
         // 플레이어를 투명하게 합니다.
         _PlayerCharacter.playerMesh.SetActive(false);
 
+        // 상호작용 설명 UI off
+        _InteractionDetailUI.SetActive(false);
+
         // 대화가 끝났을 시 실행할 것들을 추가합니다.
         onFinishInteraction += () =>
        {
@@ -71,8 +79,11 @@ public class InteractableNPC : Interact
            // NPCDialog UI 를 제거합니다.
            Destroy(gameOb);
 
+           // 상호작용 설명 UI on
+           _InteractionDetailUI.SetActive(true);
+
            // 퀘스트를 깬 후 처음으로 대화를 하면 끝 이벤트를 호출합니다.
-           if(_Stage.firstConv && _Stage.stageClear)
+           if (_Stage.firstConv && _Stage.stageClear)
            {
                _Stage.FinishStage();
            }

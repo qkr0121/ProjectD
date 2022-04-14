@@ -6,7 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Interact : MonoBehaviour
 {
-    
+    [Header("이름")]
+    [SerializeField] private string _Name;
+
+    [Header("상호작용 내용")]
+    [SerializeField] private string _InteractionDetail;
+
+    public string objectname => _Name;
+    public string interactionDetail => _InteractionDetail;
+
+
     // 상호작용이 끝났을 때 호출되는 대리자
     protected System.Action onFinishInteraction { get; set; }
 

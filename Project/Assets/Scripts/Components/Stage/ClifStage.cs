@@ -65,7 +65,7 @@ public class ClifStage : Stage
 
             alpa -= 0.004f;
 
-            yield return null;
+            yield return new WaitForSeconds(0.02f);
         }
 
     }

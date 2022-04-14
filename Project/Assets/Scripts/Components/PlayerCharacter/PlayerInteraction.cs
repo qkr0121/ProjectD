@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerInteraction : MonoBehaviour
     // PlayerCharacter 컴포넌트를 나타냅니다.
     private PlayerCharacter _PlayerCharacter;
 
+    // 상호작용 설명 UI 를 나타냅니다.
+    private GameObject _InteractionUI;
+
     // 상호작용 가능 상태를 나타냅니다
     public bool isInteracting { get; private set; }
 
@@ -21,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Awake()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
+        
     }
 
     private void Update()
@@ -51,6 +56,7 @@ public class PlayerInteraction : MonoBehaviour
 
         useInteractionKey = interactObject.UseInteractionKey();
 
+        StartCoroutine(ShowInteractableObjectName(other.gameObject));
     }
 
     // 빠져 나갔을 경우 상호작용을 실행하고
@@ -61,14 +67,30 @@ public class PlayerInteraction : MonoBehaviour
         if (useInteractionKey != true)
             // 상호작용을 실행합니다.
             TryInteraction();
-        
+
+
+        StopCoroutine(ShowInteractableObjectName(other.gameObject));
+        Destroy(_InteractionUI);
 
         _InteractableObject = null;
     }
 
     // 상호작용 가능한 오브젝트 이름을 화면에 표시합니다
-    private IEnumerator ShowInteractableObjectName()
+    private IEnumerator ShowInteractableObjectName(GameObject other)
     {
+        _InteractionUI = Instantiate(
+            ResourceManager.Instance.LoadResource<GameObject>("InteractionUI", "Prefabs/UI/Text(Interact)"),
+            PlayerManager.Instance.gameUI.interactUI.transform, true);
+
+        RectTransform rectTransform = _InteractionUI.GetComponent<RectTransform>();
+
+        rectTransform.localPosition = Vector3.zero;
+        rectTransform.localScale = Vector3.one;
+
+        Text text = _InteractionUI.GetComponent<Text>();
+
+        text.text ="E\n" + other.GetComponent<Interact>().interactionDetail;
+
         yield return null;
     }
 
