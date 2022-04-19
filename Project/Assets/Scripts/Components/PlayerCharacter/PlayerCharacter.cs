@@ -9,7 +9,7 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private CameraAnim _CameraAnim;
     [SerializeField] private PlayerInteraction _PlayerInteraction;
     [SerializeField] private PlayerCharacterAnim _PlayerAnim;
-    [SerializeField] private CaveSoundQiz _CaveSoundQiz;
+    [SerializeField] private CaveStage _CaveStage;
     private PlayerMovement _PlayerMovement;
 
     public GameObject playerMesh => _PlayerMesh;
@@ -18,7 +18,7 @@ public class PlayerCharacter : MonoBehaviour
     public PlayerMovement playerMovement => _PlayerMovement;
     public PlayerInteraction playerInteraction => _PlayerInteraction;
     public PlayerCharacterAnim playerAnim => _PlayerAnim;
-    public CaveSoundQiz caveSoundQiz => _CaveSoundQiz;
+    public CaveStage caveStage => _CaveStage;
 
     // 리스폰 위치를 나타냅니다.
     public Vector3 respawnPosition { get; set; }

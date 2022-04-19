@@ -1,6 +1,4 @@
-﻿애니메이션 -> 공굴리기(push), 버튼터치, 손잡이 잡기
-
-각 스테이지 시작시 -> UI로 스테이지 간단 설명
+﻿애니메이션 -> 버튼터치, 손잡이 잡기
 
 bgm 넣기
 
@@ -10,9 +8,8 @@ bgm 넣기
 
 절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 가운데 벽 rendering mode 변경하기
 
-동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 버튼 material -> material property block 으로 바꾸기, 퀴즈 3개로 변경
-
-캐릭터 -> (점프시 공중에 떠있는 시간), 시작 위치 고정, 공중상태여도 점프 한번가능하게-> 돌에서 내려올시 잠깐 공중판정으로 isjumpable false 가 됨 그지점찾기
+동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 버튼 material -> material property block 으로 바꾸기, 퀴즈 3개로 변경,
+	Qiz script cavestage로 변경하기(cavesound 는 전부 옮기고 cavemusic은 문제 list 등 일부만 옮기기)
 
 카메라 -> 벽에 닿을시 카메라 넘어가지 않도록
 
@@ -44,10 +41,6 @@ Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한�
 SoundManager
 
 수업자료에서 ShowINteractableObjectName() 확인하기
-
-할것
-카메라 -> 벽에 닿을시 카메라 넘어가지 않도록
-표지판 설치하기
 
 포폴작성시 확인할것
  - joystick 쓰는곳 수정하기

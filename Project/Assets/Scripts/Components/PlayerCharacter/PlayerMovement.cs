@@ -235,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
                 GameObject collTrapObj;
                 collTrapObj = hit1.transform.gameObject;
                 collTrapObj.SetActive(false);
-                _PlayerCharacter.caveSoundQiz.ChangeCaveRoad();
+                _PlayerCharacter.caveStage.ChangeCaveRoad();
             }
         }
     }

@@ -53,7 +53,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 8b54eecba4ddca440adffcc154a19ab1, type: 3}
       propertyPath: m_Name
-      value: Sign
+      value: Sign Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 8b54eecba4ddca440adffcc154a19ab1, type: 3}
       propertyPath: m_Layer
