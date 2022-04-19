@@ -146,7 +146,7 @@ public class CaveMusicQiz : MonoBehaviour
         ChangeQiz();
 
         // 마지막 퀴즈까지 맞추었다면 문이 열립니다.
-        if (qizNum == 3)
+        if (qizNum > 3)
         {
             isOpen = true;
             yield return new WaitForSeconds(6.0f);

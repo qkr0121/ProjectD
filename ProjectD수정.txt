@@ -46,3 +46,8 @@ SoundManager
  - joystick 쓰는곳 수정하기
 
 기획파일 push 하기
+
+음 파일 (do re mi sound file)
+
+SoundManager 작업 하고 있는중
+GameManager에서 LoadScene에서 Clear 적용하기(https://ansohxxn.github.io/unity%20lesson%202/ch9-1/)

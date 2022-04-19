@@ -17,16 +17,6 @@ public class CaveStage : Stage
     // 현재 정답 동굴 길의 번호
     private int rightCaveRoadNum;
 
-    /// 음 맞추기 게임
-    [Header("퀴즈1")]
-    [SerializeField] private List<int> _Qiz1;
-
-    [Header("퀴즈2")]
-    [SerializeField] private List<int> _Qiz2;
-
-    [Header("퀴즈3")]
-    [SerializeField] private List<int> _Qiz3;
-
     private void Start()
     {
         rightCaveRoadNum = 0;

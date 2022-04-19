@@ -9,5 +9,6 @@ public sealed class GameManager : GameManagerBase
 		RegisterManagerClass<PlayerManager>();
 		RegisterManagerClass<InputManager>();
 		RegisterManagerClass<ResourceManager>();
+		RegisterManagerClass<SoundManager>();
 	}
 }
