@@ -13,6 +13,24 @@ public class CaveStage : Stage
 
     [Header("목표 지점")]
     [SerializeField] private Transform _Destination;
+    
+    /// 음 맞추기 게임
+    [Header("퀴즈1")]
+    [Range(1, 8)]
+    [SerializeField] private List<int> _Qiz1;
+
+    [Header("퀴즈2")]
+    [Range(1, 8)]
+    [SerializeField] private List<int> _Qiz2;
+
+    [Header("퀴즈3")]
+    [Range(1, 8)]
+    [SerializeField] private List<int> _Qiz3;
+
+    // _Qiz 리스트 읽기 전용 프로퍼티
+    public List<int> qiz1 => _Qiz1;
+    public List<int> qiz2 => _Qiz2;
+    public List<int> qiz3 => _Qiz3;
 
     // 현재 정답 동굴 길의 번호
     private int rightCaveRoadNum;

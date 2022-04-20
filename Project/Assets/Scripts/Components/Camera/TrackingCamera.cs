@@ -66,8 +66,20 @@ public class TrackingCamera : MonoBehaviour
     // 카메라를 이동 시킵니다.
     private void MoveCamera()
     {
-        camera.transform.position = transform.position + transform.forward * -2.0f;
-        //transform.position = _TargetObject.transform.position;
+        Ray ray = new Ray(transform.position, -camera.transform.eulerAngles);
+
+        RaycastHit hit;
+
+        Debug.DrawRay(transform.position, camera.transform.eulerAngles, Color.red);
+
+        if(Physics.Raycast(ray, out hit, 2.0f))
+        {
+            camera.transform.position = transform.position + transform.forward * -hit.distance;
+        }
+        else
+        {
+            camera.transform.position = transform.position + transform.forward * -2.0f;
+        }
 
     }
 

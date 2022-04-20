@@ -23,6 +23,8 @@ public class InteractableCaveButton : Interact
     IEnumerator PlayMusic()
     {
         _CaveMusicQiz.TryQiz(_SoundHigh, _SimpleSonarShader_Object);
+
+        SoundManager.Instance.Play("Prefabs/Sounds/Syllable"+_SoundHigh, Sound.Effect);
         yield return new WaitForSeconds(0.5f);
 
         FinishInteraction();

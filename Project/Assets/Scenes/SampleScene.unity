@@ -2860,9 +2860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835debaf504e7aa48b37b496e0dbbb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Qiz1: 020000000400000006000000
-  _Qiz2: 010000000300000005000000
-  _Qiz3: 010000000200000003000000
   _Door: {fileID: 995319294}
   _DoorOpenSpeed: 2
   _AnswerSphere:
@@ -2870,6 +2867,7 @@ MonoBehaviour:
   - {fileID: 228351323}
   - {fileID: 1747454263}
   _CameraPos: {fileID: 1131632000}
+  _CaveStage: {fileID: 1247463020}
 --- !u!65 &344795491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10311,6 +10309,9 @@ MonoBehaviour:
   - {fileID: 2062772394}
   - {fileID: 434706306}
   _Destination: {fileID: 431383038}
+  _Qiz1: 020000000400000006000000
+  _Qiz2: 010000000300000005000000
+  _Qiz3: 010000000200000003000000
 --- !u!1 &1247526007
 GameObject:
   m_ObjectHideFlags: 0
@@ -23279,7 +23280,7 @@ PrefabInstance:
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 99
+      value: 98.4
       objectReference: {fileID: 0}
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}
@@ -23289,7 +23290,7 @@ PrefabInstance:
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.79
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 39354574783603088, guid: e62cd36ad11d5e142b2cd9af279ed777,
         type: 3}

@@ -1,17 +1,14 @@
 ﻿애니메이션 -> 버튼터치, 손잡이 잡기
 
-bgm 넣기
-
 숲 ->
 
 눈지형 -> 대사
 
-절벽지형 -> 돌에서 움직일때 애니메이션 오류 생김(ground 판정이 아닌듯함), 가운데 벽 rendering mode 변경하기
+절벽지형 -> 가운데 벽 rendering mode 변경하기
 
-동굴지형 -> 대사, 음악 넣기, 버튼입력시 음악재생, 버튼 material -> material property block 으로 바꾸기, 퀴즈 3개로 변경,
-	Qiz script cavestage로 변경하기(cavesound 는 전부 옮기고 cavemusic은 문제 list 등 일부만 옮기기)
+동굴지형 -> 대사, 문제 음악 실행하기(가운데 기둥으로 실행)
 
-카메라 -> 벽에 닿을시 카메라 넘어가지 않도록
+카메라 -> 벽에 닿을시 카메라 넘어가지 않도록(camera.pos 에서 tranform.pos 빼서 방향구해보기)---------------------
 
 UI
 
@@ -20,14 +17,14 @@ NPC 오브젝트
 
 점프 -> 수업자료에서 점프 방식 확인(JumpAnim메서드를 pleyrAnim이 아닌 PlayerMovement에서 실행하는 것이 맞는가), 절벽에서 밀려나는이유
 
-stage ->  끝날때 실행할 메서드를 작성하기 처음 대화 할때만 끝 이벤트 호출하기
-
-처음시작시 설명 다시보고 싶으면 표지판 찾으라고 말하기
-
-각 스테이지 설명 또 보고 싶으면 옆 표지판을 상호작용해서 보게 하기
-
-모바일 말고 컴퓨터로 진행하는것 먼저하기
 InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화 할때만 켜기)
+
+음 파일 (do re mi sound file)
+
+SoundManager Play() 잘 작동하는지 확인하기, Bgm넣기
+GameManager에서 LoadScene에서 Clear 적용하기(https://ansohxxn.github.io/unity%20lesson%202/ch9-1/)
+
+-----------------------------------------------------------------------------------------------------
 
 * 싱글톤패턴, 대리자, 이벤트, Action, 코루틴
 * InteractableNPC 에서
@@ -38,16 +35,9 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-SoundManager
-
-수업자료에서 ShowINteractableObjectName() 확인하기
+수업자료에서 ShowInteractableObjectName() 확인하기
 
 포폴작성시 확인할것
  - joystick 쓰는곳 수정하기
 
 기획파일 push 하기
-
-음 파일 (do re mi sound file)
-
-SoundManager 작업 하고 있는중
-GameManager에서 LoadScene에서 Clear 적용하기(https://ansohxxn.github.io/unity%20lesson%202/ch9-1/)

@@ -36,10 +36,6 @@ public class PlayerCharacterAnim : MonoBehaviour
         {
             _Animator.SetFloat("_Velocity", _PlayerCharacter.playerMovement.velocity.magnitude);
         }
-        else
-        {
-            _Animator.SetFloat("_Velocity", 0.0f);
-        }
 
         // 점프 애니메이션
         _Animator.SetBool("_IsGrounded", _PlayerCharacter.playerMovement.isGrounded);

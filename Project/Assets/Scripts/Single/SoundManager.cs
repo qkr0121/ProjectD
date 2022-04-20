@@ -98,7 +98,7 @@ public class SoundManager : ManagerClassBase<SoundManager>
             // _audioClips에 Clip 이 있는지 확인합니다.(없으면 새로 생성해서 _audioClip에 저장한다.)
             if(_audioClips.TryGetValue(path, out audioClip) == false)
             {
-                audioClip = ResourceManager.Instance.LoadResource<AudioClip>(path);
+                audioClip = ResourceManager.Instance.LoadResource<AudioClip>(path, path);
                 _audioClips.Add(path, audioClip);
             }
         }
@@ -109,6 +109,6 @@ public class SoundManager : ManagerClassBase<SoundManager>
 
     public override void InitializeManagerClass()
     {
-        throw new System.NotImplementedException();
+        Init();
     }
 }
