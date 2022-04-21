@@ -13,6 +13,9 @@ public class TrackingCamera : MonoBehaviour
     [Header("Rotation Speed")]
     [SerializeField] private float _RotationSpeed;
 
+    [Header("IgnoreLayer")]
+    [SerializeField] private LayerMask _IgnoreLayer;
+
     // PlayerCharacter 컴포넌트를 나타냅니다.
     private PlayerCharacter _PlayerCharacter;
 
@@ -66,13 +69,12 @@ public class TrackingCamera : MonoBehaviour
     // 카메라를 이동 시킵니다.
     private void MoveCamera()
     {
-        Ray ray = new Ray(transform.position, -camera.transform.eulerAngles);
+        Ray ray = new Ray(transform.position, camera.transform.position - transform.position);
 
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, camera.transform.eulerAngles, Color.red);
-
-        if(Physics.Raycast(ray, out hit, 2.0f))
+        // 카메라가 오브젝트에 닿으면 넘어가지 않도록 합니다.
+        if(Physics.Raycast(ray, out hit, 2.0f, ~_IgnoreLayer))
         {
             camera.transform.position = transform.position + transform.forward * -hit.distance;
         }

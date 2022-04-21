@@ -37,6 +37,8 @@ public class CaveMusicQiz : MonoBehaviour
     // 색
     private float _IncColor;
 
+    public int QizNum => qizNum;
+
     private void Start()
     {
         _PlayerCharacter = PlayerManager.Instance.playerCharacter;
@@ -111,7 +113,7 @@ public class CaveMusicQiz : MonoBehaviour
             _IncColor = 0;
 
             // 마지막 퀴즈까지 맞추었다면 문이 열립니다.
-            if (qizNum == 1)
+            if (qizNum == 3)
             {
                 StartCoroutine(OpenDoor());
             }
@@ -141,12 +143,5 @@ public class CaveMusicQiz : MonoBehaviour
         qizNum++;
         qizOrder = 0;
         ChangeQiz();
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // 시작지점 진입시 상호작용 버튼을 활성화합니다.
-        InputManager.Instance.SetActiveInteractJoyStick();
-    }
+    }   
 }

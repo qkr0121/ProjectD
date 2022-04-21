@@ -24,9 +24,6 @@ public class SavePoint : MonoBehaviour
             // 리스폰 위치를 변경합니다.
             _PlayerCharacter.respawnPosition = transform.position;
 
-            // 상호작용 키를 활성화합니다.
-            InputManager.Instance.SetActiveInteractJoyStick();
-
             _Stage.gameObject.SetActive(true);
 
             // 처음 스테이지에 진입함을 알립니다.

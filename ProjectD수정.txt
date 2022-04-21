@@ -6,9 +6,7 @@
 
 절벽지형 -> 가운데 벽 rendering mode 변경하기
 
-동굴지형 -> 대사, 문제 음악 실행하기(가운데 기둥으로 실행)
-
-카메라 -> 벽에 닿을시 카메라 넘어가지 않도록(camera.pos 에서 tranform.pos 빼서 방향구해보기)---------------------
+동굴지형 -> 대사,
 
 UI
 
@@ -19,9 +17,7 @@ NPC 오브젝트
 
 InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화 할때만 켜기)
 
-음 파일 (do re mi sound file)
-
-SoundManager Play() 잘 작동하는지 확인하기, Bgm넣기
+bgm(찾기), 문제 음악 찾기, sky 변경하기
 GameManager에서 LoadScene에서 Clear 적용하기(https://ansohxxn.github.io/unity%20lesson%202/ch9-1/)
 
 -----------------------------------------------------------------------------------------------------
@@ -35,9 +31,11 @@ _TMP.rectTransform.eulerAngles = _PlayerCharacter.transform.position.Direction(t
 
 Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한것도 찾아보기
 
-수업자료에서 ShowInteractableObjectName() 확인하기
+수업자료에서 ShowInteractableObjectName() 확인하기(이름 위치 뜨는 좌표 설정 어떻게 했나)
 
 포폴작성시 확인할것
  - joystick 쓰는곳 수정하기
 
 기획파일 push 하기
+
+c# 콘솔게임 포폴로 가능한지 물어보기

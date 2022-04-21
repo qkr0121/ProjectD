@@ -11,15 +11,15 @@ public sealed class StageWolfRock : MonoBehaviour
     [Header("돌을 밟을 수 있는 시간")]
     [SerializeField] private float _StandableTime;
 
-    private MeshCollider _MeshCollider;
+    private BoxCollider _BoxCollider;
 
     private MeshRenderer _MeshRenderer;
 
 
     private void Start()
     {
-        _MeshCollider = GetComponent<MeshCollider>();
-        _MeshRenderer = GetComponent<MeshRenderer>();
+        _BoxCollider = gameObject.GetComponent<BoxCollider>();
+        _MeshRenderer = gameObject.GetComponent<MeshRenderer>();
     }
 
     // 플레이어가 돌을 밟을 때
@@ -42,12 +42,12 @@ public sealed class StageWolfRock : MonoBehaviour
     {
         yield return new WaitForSeconds(_StandableTime);
 
-        _MeshCollider.enabled = false;
+        _BoxCollider.enabled = false;
         _MeshRenderer.enabled = false;
 
         yield return new WaitForSeconds(2);
 
-        _MeshCollider.enabled = true;
+        _BoxCollider.enabled = true;
         _MeshRenderer.enabled = true;
         
     }
