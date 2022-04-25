@@ -1,25 +1,5 @@
-﻿애니메이션 -> 버튼터치, 손잡이 잡기
-
-숲 ->
-
-눈지형 -> 대사
-
-절벽지형 -> 가운데 벽 rendering mode 변경하기
-
-동굴지형 -> 대사,
-
-UI
-
-NPC 오브젝트
-퀘스트
-
-점프 -> 수업자료에서 점프 방식 확인(JumpAnim메서드를 pleyrAnim이 아닌 PlayerMovement에서 실행하는 것이 맞는가), 절벽에서 밀려나는이유
-
-InputManager 구조 파악후 마우스 커버 표시 on,off 구현하기(대화 할때만 켜기)
-
-bgm(찾기), 문제 음악 찾기, sky 변경하기
-GameManager에서 LoadScene에서 Clear 적용하기(https://ansohxxn.github.io/unity%20lesson%202/ch9-1/)
-
+﻿포폴작성시 확인할것
+ - joystick 쓰는곳 수정하기
 -----------------------------------------------------------------------------------------------------
 
 * 싱글톤패턴, 대리자, 이벤트, Action, 코루틴
@@ -33,9 +13,10 @@ Project Setting 에서 Static Batching 찾아보기(최적화), Stats에 관한�
 
 수업자료에서 ShowInteractableObjectName() 확인하기(이름 위치 뜨는 좌표 설정 어떻게 했나)
 
-포폴작성시 확인할것
- - joystick 쓰는곳 수정하기
+매니저 스크립트 : https://ansohxxn.github.io/unity%20lesson%202/ch9-1/
 
-기획파일 push 하기
-
-c# 콘솔게임 포폴로 가능한지 물어보기
+다른 기능들을 구현할 수 있는 게임 만들기 
+	- 모바일 : SceneManager, Clicker
+	- rpg : ai(FSM 참고), 인벤토리, 
+	- HSM
+기능 구현에 신경 쓸것
